@@ -1,0 +1,18 @@
+syntax = "proto3" ; 
+
+option go_package="proto/number";
+
+message NumberRequest {
+    string number = 1 ; 
+    
+}
+message NumberResponse {
+    enum RESULT {
+        PAIR = 0 ;
+        IMPAIR =1 ;
+    }
+    RESULT response = 1 ;
+}
+service Parity {
+    rpc CheckParity (NumberRequest) returns (NumberResponse){}
+}
