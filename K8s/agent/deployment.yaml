@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: laroui-agent
-          image: khero1234/grpc
+          image: khero1234/laroui-agent
           imagePullPolicy: IfNotPresent
           resources:
             requests:

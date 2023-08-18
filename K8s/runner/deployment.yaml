@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laroui-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laroui-runner
+  template:
+    metadata:
+      labels:
+        app: laroui-runner
+    spec:
+      containers:
+        - name: laroui-runner
+          image: khero1234/laroui-runner
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          env:
+            - name: REDIS_HOST
+              value: redis-db
+            - name: REDIS_PORT
+              value: "6379"
