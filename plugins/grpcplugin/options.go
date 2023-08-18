@@ -52,4 +52,6 @@ func (p *GrpcPlugin) CheckParity(ctx context.Context, n *number.NumberRequest) (
 // run the grpc server
 func (p *GrpcPlugin) Run() error {
 	return nil
+
+
 }
