@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laroui-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laroui-agent
+  template:
+    metadata:
+      labels:
+        app: laroui-agent
+    spec:
+      containers:
+        - name: laroui-agent
+          image: khero1234/grpc
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          env:
+            - name: REDIS_HOST
+              value: redis-db
+            - name: REDIS_PORT
+              value: "6379"
